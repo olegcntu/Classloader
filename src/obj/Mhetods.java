@@ -32,12 +32,12 @@ public class Mhetods {
         if(result[1].equals("static")){mod=result[1];}
         else if(result[0].equals("final")){mod=result[1];}
         else if(result[0].equals("transient")){mod=result[1];}
-        else {mod=" ";}
+        else {mod=null;}
     }
 
     @Override
     public String toString() {
-        return "Mhetods{" +"name='" + name + '\'' + ", type='" + type + '\'' +", mod='" + mod + '\'' + ", oblsee='" + oblsee + '\'' + '}';
+        return " Mhetods " +" \n Name=" + name + "; \n Type='" + type +"; \n Mod=" + mod + "; \n Oblsee='" + oblsee + ";";
     }
 
 }

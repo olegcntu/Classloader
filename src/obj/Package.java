@@ -55,7 +55,7 @@ public class Package {
 
     @Override
     public String toString() {
-        return "Package{" +"name='" + name + '\'' +'}';
+        return " Package: "+name;
     }
 
 }

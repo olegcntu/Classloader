@@ -18,35 +18,32 @@ import java.lang.ClassLoader;
 public class Lab1 {
 
     /**
-     * @param args
+     * @param
      * @throws IOException
      * @throws FileNotFoundException
      * @throws ClassNotFoundException
      */
-    public static void main(String[] args) throws FileNotFoundException, IOException, ClassNotFoundException {
-        String st = "C:/Users/PC/Desktop/Test.jar";
+    public ArrayList<Package> Work(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
+        String st = path;
         ClassLoader loader = new MyClassLoader(st);
         JarFile f = new JarFile(st);
         Enumeration<JarEntry> enumiration = f.entries();
 
         String s;
         Class c;
-        File file;
+        //File file;
         JarEntry e;
 
         ArrayList<String> arr = new ArrayList<>();
-        ArrayList<Classes> clases = new ArrayList<>();
+        //ArrayList<Classes> clases = new ArrayList<>();
         ArrayList<Package> pack = new ArrayList<>();
-        ArrayList<MyFiles> files = new ArrayList<>();
+        // ArrayList<MyFiles> files = new ArrayList<>();
 
 
         while (enumiration.hasMoreElements()) {
             Classes cl = new Classes();
             Package pk = new Package();
             e = enumiration.nextElement();
-
-            //  System.out.println(e);//+++++++++++++++++++++вывод
-
 
             if (e.getName().contains(".class")) {
                 arr.add(e.getName());
@@ -99,27 +96,26 @@ public class Lab1 {
             }
         }
 
-        System.out.println("---------------");
 
-        for (Package p : pack) {
-            System.out.println(p.getName());
-            for (MyFiles itFl : p.getFiles()) {
-                System.out.println(itFl);
-            }
-
-            for (Classes itCl : p.getClases()) {
-                System.out.println(itCl.toString());
-                for (Mhetods itMet : itCl.getMhetod()) {
-                    System.out.println("       " + itMet.toString());
-                }
-                for (Values itVel : itCl.getValue()) {
-                    System.out.println("       " + itVel.toString());
-                }
-            }
-        }
+//        for (Package p : pack) {
+//            System.out.println(p.getName());
+//            for (MyFiles itFl : p.getFiles()) {
+//                System.out.println(itFl);
+//            }
+//
+//            for (Classes itCl : p.getClases()) {
+//                System.out.println(itCl.toString());
+//                for (Mhetods itMet : itCl.getMhetod()) {
+//                    System.out.println("       " + itMet.toString());
+//                }
+//                for (Values itVel : itCl.getValue()) {
+//                    System.out.println("       " + itVel.toString());
+//                }
+//            }
+//        }
 
         f.close();
-
+        return pack;
 
     }
 

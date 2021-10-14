@@ -31,7 +31,7 @@ public class Classes {
         try {
             Class myClass = clazz;
 
-            System.out.println(myClass.isAnnotation());
+           // System.out.println(myClass.isAnnotation());
 
             this.annotations = Arrays.toString(myClass.getAnnotations());
         } catch (Exception e) {
@@ -40,7 +40,7 @@ public class Classes {
         if (clazz.isInterface())
             this.inst = "Interface";
         else if (clazz.isEnum())
-            this.inst = "Enum ";
+            this.inst = "Enum";
         else
             this.inst = "Class";
 
@@ -55,9 +55,10 @@ public class Classes {
 
         if (clazz.isArray())
             this.inst = "array";
-        if (clazz.getName().contains("$"))
+        if (clazz.getName().contains("$")) {
             this.mod = "local";
-
+        }
+        else this.mod="none";
         construct = Arrays.toString(clazz.getConstructors());
 
     }
@@ -76,12 +77,10 @@ public class Classes {
 
     @Override
     public String toString() {
-        return "Classes{" +
-                "inst='" + inst + '\'' +
-                ", name='" + name + '\'' +
-                ", mod='" + mod + '\'' +
-                ", annot='" + annotations + '\'' +
-                ", construct='" + construct + '\'' +
-                ", interface='" + interfaces + '\'';
+        return " "+inst +": " + name  +"; \n Mod: " + mod +";  \n Annot:" + annotations +
+                ";  \n Construct=" + construct +
+                ";  \n Interface=" + interfaces ;
     }
+
+
 }

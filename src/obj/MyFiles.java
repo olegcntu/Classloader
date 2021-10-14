@@ -8,12 +8,11 @@ public class MyFiles {
 
     @Override
     public String toString() {
-        return "MyFiles{" +
-                "name='" + name + '\'' +
-                ", size='" + size + '\'' +
-                ", dateUpdate='" + dateUpdate + '\'' +
-                ", info='" + info + '\'' +
-                '}';
+        return " MyFiles: " +
+                ";\n Name=" + name  +
+                ";\n Size=" + size +
+                ";\n DateUpdate=" + dateUpdate +
+                ";\n Info=" + info ;
     }
 
     public MyFiles(String name, String size, String dateUpdate, String info) {

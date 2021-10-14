@@ -64,7 +64,6 @@ public class ClassDetail {
                 } catch (Exception e) {
                     buf.append("\n");
                 }
-               // System.out.println(m.toString());
             }
         } catch (Throwable e) {
 
