@@ -1,15 +1,10 @@
-package Lab_1;
+package classLoad;
 
 import obj.*;
 import obj.Package;
 
-import javax.jnlp.FileSaveService;
 import java.io.*;
-import java.net.URL;
 import java.nio.charset.Charset;
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
@@ -17,12 +12,6 @@ import java.lang.ClassLoader;
 
 public class Lab1 {
 
-    /**
-     * @param
-     * @throws IOException
-     * @throws FileNotFoundException
-     * @throws ClassNotFoundException
-     */
     public ArrayList<Package> Work(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
         String st = path;
         ClassLoader loader = new MyClassLoader(st);
@@ -31,14 +20,10 @@ public class Lab1 {
 
         String s;
         Class c;
-        //File file;
         JarEntry e;
 
         ArrayList<String> arr = new ArrayList<>();
-        //ArrayList<Classes> clases = new ArrayList<>();
         ArrayList<Package> pack = new ArrayList<>();
-        // ArrayList<MyFiles> files = new ArrayList<>();
-
 
         while (enumiration.hasMoreElements()) {
             Classes cl = new Classes();
@@ -86,33 +71,14 @@ public class Lab1 {
                 if (e.getName().contains(".properties")) {
                     InputStream in = f.getInputStream(e);
                     byte[] buffer = new byte[(int) (e.getSize())];
-                    String fSt = null;
                     in.read(buffer, 0, buffer.length);
                     strInfo = new String(buffer, Charset.forName("windows-1251"));
-                    //System.out.println(str);
                 }
                 MyFiles myFiles = new MyFiles(e.getName(), Long.toString(e.getSize()), d.toString(), strInfo);
                 pk.addFiles(myFiles);
             }
         }
 
-
-//        for (Package p : pack) {
-//            System.out.println(p.getName());
-//            for (MyFiles itFl : p.getFiles()) {
-//                System.out.println(itFl);
-//            }
-//
-//            for (Classes itCl : p.getClases()) {
-//                System.out.println(itCl.toString());
-//                for (Mhetods itMet : itCl.getMhetod()) {
-//                    System.out.println("       " + itMet.toString());
-//                }
-//                for (Values itVel : itCl.getValue()) {
-//                    System.out.println("       " + itVel.toString());
-//                }
-//            }
-//        }
 
         f.close();
         return pack;

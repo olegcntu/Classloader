@@ -37,7 +37,7 @@ public class Mhetods {
 
     @Override
     public String toString() {
-        return " Mhetods " +" \n Name=" + name + "; \n Type='" + type +"; \n Mod=" + mod + "; \n Oblsee='" + oblsee + ";";
+        return " Mhetods " +" \n Name=" + name + "; \n Type=" + type +"; \n Mod=" + mod + "; \n Oblsee=" + oblsee + ";";
     }
 
 }

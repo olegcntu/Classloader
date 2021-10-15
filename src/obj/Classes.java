@@ -1,9 +1,7 @@
 package obj;
 
-import Lab_1.ClassDetail;
+import classLoad.Detail;
 
-import java.lang.annotation.Annotation;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Arrays;
 
@@ -18,8 +16,8 @@ public class Classes {
     String construct;
 
     public void thisValueset(Class c) {
-        mhetod = ClassDetail.getMetodNames(c);
-        value = ClassDetail.getFieldNames(c);
+        mhetod = Detail.getMetodNames(c);
+        value = Detail.getFieldNames(c);
     }
 
     public void setName(Class clazz) {
@@ -30,9 +28,6 @@ public class Classes {
         this.name = clazz.getSimpleName();
         try {
             Class myClass = clazz;
-
-           // System.out.println(myClass.isAnnotation());
-
             this.annotations = Arrays.toString(myClass.getAnnotations());
         } catch (Exception e) {
             System.out.println(e);
@@ -57,13 +52,8 @@ public class Classes {
             this.inst = "array";
         if (clazz.getName().contains("$")) {
             this.mod = "local";
-        }
-        else this.mod="none";
+        } else this.mod = "none";
         construct = Arrays.toString(clazz.getConstructors());
-
-    }
-
-    public void setMods(String st) {
 
     }
 
@@ -77,9 +67,9 @@ public class Classes {
 
     @Override
     public String toString() {
-        return " "+inst +": " + name  +"; \n Mod: " + mod +";  \n Annot:" + annotations +
+        return " " + inst + ": " + name + "; \n Mod: " + mod + ";  \n Annot:" + annotations +
                 ";  \n Construct=" + construct +
-                ";  \n Interface=" + interfaces ;
+                ";  \n Interface=" + interfaces;
     }
 
 

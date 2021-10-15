@@ -41,6 +41,6 @@ public class Values {
 
     @Override
     public String toString() {
-        return " Values: " +" \n Name=" + name +  "; \n Type=" + type + ";\n Mod='" + mod +  ";\n Oblsee=" + oblsee;
+        return " Values: " +" \n Name=" + name +  "; \n Type=" + type + ";\n Mod=" + mod +  ";\n Oblsee=" + oblsee;
     }
 }
