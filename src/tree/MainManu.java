@@ -66,14 +66,12 @@ public class MainManu extends JFrame {
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
 
-        Thread thread = new Thread(){
 
-            @Override
-            public void run(){
-                frame = new MainManu("Classloader");
-                frame.setVisible(true);
-            }
-        } ;
+
+        Thread thread = new Thread(() -> {
+            frame = new MainManu("Classloader");
+            frame.setVisible(true);
+        });
         thread.start();
 
     }

@@ -11,13 +11,14 @@ public class Classes {
     String mod;
     ArrayList<Values> value;
     ArrayList<Mhetods> mhetod;
-    String interfaces;
+    String interfaces="";
     String annotations;
     String construct;
 
-    public void thisValueset(Class c) {
+    public void thisValueSet(Class c) {
         mhetod = Detail.getMetodNames(c);
         value = Detail.getFieldNames(c);
+
     }
 
     public void setName(Class clazz) {
@@ -42,9 +43,14 @@ public class Classes {
         try {
             Class[] c = clazz.getInterfaces();
 
-            for (Class itCl : c) {
-                interfaces = interfaces + ", " + itCl.toString();
+
+            for(int i=0;i<c.length-1;i++){
+            interfaces=c[i].toString()+interfaces+", ";
             }
+
+            interfaces=interfaces+c[c.length-1].toString()+". ";
+
+
         } catch (Exception e) {
         }
 

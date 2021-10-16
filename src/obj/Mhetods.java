@@ -1,9 +1,5 @@
 package obj;
 
-import com.sun.deploy.util.StringUtils;
-
-import java.util.Arrays;
-import java.util.List;
 
 public class Mhetods {
     String name;
@@ -22,22 +18,32 @@ public class Mhetods {
         this.type = type;
     }
 
-    public void setMods(String st){
+    public void setMods(String st) {
         String[] result = st.split("\\s+");
-        if(result[0].equals("protected")){oblsee=result[0];}
-        else if(result[0].equals("private")){oblsee=result[0];}
-        else if(result[0].equals("public")){oblsee=result[0];}
-        else {oblsee="default";}
+        if (result[0].equals("protected")) {
+            oblsee = result[0];
+        } else if (result[0].equals("private")) {
+            oblsee = result[0];
+        } else if (result[0].equals("public")) {
+            oblsee = result[0];
+        } else {
+            oblsee = "default";
+        }
 
-        if(result[1].equals("static")){mod=result[1];}
-        else if(result[0].equals("final")){mod=result[1];}
-        else if(result[0].equals("transient")){mod=result[1];}
-        else {mod=null;}
+        if (result[1].equals("static")) {
+            mod = result[1];
+        } else if (result[0].equals("final")) {
+            mod = result[1];
+        } else if (result[0].equals("transient")) {
+            mod = result[1];
+        } else {
+            mod = null;
+        }
     }
 
     @Override
     public String toString() {
-        return " Mhetods " +" \n Name=" + name + "; \n Type=" + type +"; \n Mod=" + mod + "; \n Oblsee=" + oblsee + ";";
+        return " Mhetods " + " \n Name=" + name + "; \n Type=" + type + "; \n Mod=" + mod + "; \n Oblsee=" + oblsee + ";";
     }
 
 }

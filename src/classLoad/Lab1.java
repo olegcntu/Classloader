@@ -47,7 +47,7 @@ public class Lab1 {
 
                     if (c != null) {
                         cl.setName(c);
-                        cl.thisValueset(c);
+                        cl.thisValueSet(c);
 
                         pk.addClass(cl);
 
