@@ -9,17 +9,17 @@ public class MyFiles {
     @Override
     public String toString() {
         return " MyFiles: " +
-                ";\n Name=" + name  +
+                ";\n Name=" + name +
                 ";\n Size=" + size +
                 ";\n DateUpdate=" + dateUpdate +
-                ";\n Info=" + info ;
+                ";\n Info=" + info;
     }
 
     public MyFiles(String name, String size, String dateUpdate, String info) {
-        String stName[]=name.split("/");
-        this.name =  stName[stName.length-1];
+        String stName[] = name.split("/");
+        this.name = stName[stName.length - 1];
         this.size = size;
         this.dateUpdate = dateUpdate;
-        this.info=info;
+        this.info = info;
     }
 }

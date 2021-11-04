@@ -58,14 +58,13 @@ public class MainManu extends JFrame {
         getInfoButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                DefaultMutableTreeNode sn=(DefaultMutableTreeNode)tree.getSelectionPath().getLastPathComponent();
+                DefaultMutableTreeNode sn = (DefaultMutableTreeNode) tree.getSelectionPath().getLastPathComponent();
                 textArea1.setText(sn.getUserObject().toString());
             }
         });
     }
 
     public static void main(String[] args) throws IOException, ClassNotFoundException {
-
 
 
         Thread thread = new Thread(() -> {

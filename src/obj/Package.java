@@ -10,14 +10,13 @@ public class Package {
     ArrayList<MyFiles> files;
 
 
-
-
-
     public void addClass(Classes o) {
         this.clases.add(o);
     }
 
-    public void addFiles(MyFiles o) { this.files.add(o);}
+    public void addFiles(MyFiles o) {
+        this.files.add(o);
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -49,13 +48,14 @@ public class Package {
     public ArrayList<Classes> getClases() {
         return clases;
     }
+
     public ArrayList<MyFiles> getFiles() {
         return files;
     }
 
     @Override
     public String toString() {
-        return " Package: "+name;
+        return " Package: " + name;
     }
 
 }

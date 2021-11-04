@@ -11,7 +11,7 @@ public class Classes {
     String mod;
     ArrayList<Values> value;
     ArrayList<Mhetods> mhetod;
-    String interfaces="";
+    String interfaces = "";
     String annotations;
     String construct;
 
@@ -44,11 +44,11 @@ public class Classes {
             Class[] c = clazz.getInterfaces();
 
 
-            for(int i=0;i<c.length-1;i++){
-            interfaces=c[i].toString()+interfaces+", ";
+            for (int i = 0; i < c.length - 1; i++) {
+                interfaces = c[i].toString() + interfaces + ", ";
             }
 
-            interfaces=interfaces+c[c.length-1].toString()+". ";
+            interfaces = interfaces + c[c.length - 1].toString() + ". ";
 
 
         } catch (Exception e) {
