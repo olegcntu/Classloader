@@ -1,17 +1,16 @@
 package obj;
 
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Objects;
 
 public class Package {
     String name;
-    ArrayList<Classes> clases;
+    ArrayList<Classes> classes;
     ArrayList<MyFiles> files;
 
 
     public void addClass(Classes o) {
-        this.clases.add(o);
+        this.classes.add(o);
     }
 
     public void addFiles(MyFiles o) {
@@ -32,7 +31,7 @@ public class Package {
     }
 
     public void setName(String name) {
-        clases = new ArrayList<>();
+        classes = new ArrayList<>();
         files = new ArrayList<>();
 
         String arr[] = name.split("\\.");
@@ -45,8 +44,8 @@ public class Package {
     }
 
 
-    public ArrayList<Classes> getClases() {
-        return clases;
+    public ArrayList<Classes> getClasses() {
+        return classes;
     }
 
     public ArrayList<MyFiles> getFiles() {

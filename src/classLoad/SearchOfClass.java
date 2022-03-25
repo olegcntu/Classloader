@@ -10,7 +10,7 @@ import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
 import java.lang.ClassLoader;
 
-public class Lab1 {
+public class SearchOfClass {
 
     public ArrayList<Package> Work(String path) throws FileNotFoundException, IOException, ClassNotFoundException {
         String st = path;

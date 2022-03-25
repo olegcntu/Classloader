@@ -10,13 +10,13 @@ public class Classes {
     String name;
     String mod;
     ArrayList<Values> value;
-    ArrayList<Mhetods> mhetod;
+    ArrayList<Methods> method;
     String interfaces = "";
     String annotations;
     String construct;
 
     public void thisValueSet(Class c) {
-        mhetod = Detail.getMetodNames(c);
+        method = Detail.getMethodNames(c);
         value = Detail.getFieldNames(c);
 
     }
@@ -67,8 +67,8 @@ public class Classes {
         return value;
     }
 
-    public ArrayList<Mhetods> getMhetod() {
-        return mhetod;
+    public ArrayList<Methods> getMethod() {
+        return method;
     }
 
     @Override

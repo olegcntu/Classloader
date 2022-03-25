@@ -1,6 +1,6 @@
 package tree;
 
-import classLoad.Lab1;
+import classLoad.SearchOfClass;
 import obj.*;
 import obj.Package;
 
@@ -12,8 +12,8 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
-public class MainManu extends JFrame {
-    public static MainManu frame;
+public class MainMenu extends JFrame {
+    public static MainMenu frame;
     private JPanel mainPanel;
     private JButton button1;
     private String fileName;
@@ -25,7 +25,7 @@ public class MainManu extends JFrame {
     private JTextField textField1;
     private ArrayList<Package> pack;
 
-    public MainManu(String title) {
+    public MainMenu(String title) {
         super(title);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.setContentPane(mainPanel);
@@ -43,7 +43,7 @@ public class MainManu extends JFrame {
                 fileName = getFileName("*.jar");
                 System.out.println(fileName);
                 Label1.setText(fileName);
-                Lab1 l = new Lab1();
+                SearchOfClass l = new SearchOfClass();
                 try {
                     pack = l.Work(fileName);
                 } catch (IOException ex) {
@@ -68,7 +68,7 @@ public class MainManu extends JFrame {
 
 
         Thread thread = new Thread(() -> {
-            frame = new MainManu("Classloader");
+            frame = new MainMenu("Classloader");
             frame.setVisible(true);
         });
         thread.start();
@@ -91,33 +91,33 @@ public class MainManu extends JFrame {
     public void workTree(ArrayList<Package> pack) {
         DefaultMutableTreeNode root = new DefaultMutableTreeNode(worNormalName(fileName));
 
-        DefaultMutableTreeNode packeArr = null;
-        DefaultMutableTreeNode filesesArr = null;
+        DefaultMutableTreeNode packageArr = null;
+        DefaultMutableTreeNode filesArr = null;
         DefaultMutableTreeNode classesArr = null;
         DefaultMutableTreeNode valuesArr = null;
-        DefaultMutableTreeNode mhetodsArr = null;
+        DefaultMutableTreeNode methodsArr = null;
 
 
         for (Package p : pack) {
-            packeArr = new DefaultMutableTreeNode(p.toString());
-            root.add(packeArr);
+            packageArr = new DefaultMutableTreeNode(p.toString());
+            root.add(packageArr);
 
             for (MyFiles itFl : p.getFiles()) {
-                filesesArr = new DefaultMutableTreeNode(itFl.toString());
-                packeArr.add(filesesArr);
+                filesArr = new DefaultMutableTreeNode(itFl.toString());
+                packageArr.add(filesArr);
             }
 
-            for (Classes itCl : p.getClases()) {
+            for (Classes itCl : p.getClasses()) {
                 classesArr = new DefaultMutableTreeNode(itCl.toString());
-                packeArr.add(classesArr);
+                packageArr.add(classesArr);
 
-                for (Mhetods itMet : itCl.getMhetod()) {
+                for (Methods itMet : itCl.getMethod()) {
                     valuesArr = new DefaultMutableTreeNode(itMet.toString());
                     classesArr.add(valuesArr);
                 }
                 for (Values itVel : itCl.getValue()) {
-                    mhetodsArr = new DefaultMutableTreeNode(itVel.toString());
-                    classesArr.add(mhetodsArr);
+                    methodsArr = new DefaultMutableTreeNode(itVel.toString());
+                    classesArr.add(methodsArr);
                 }
             }
         }

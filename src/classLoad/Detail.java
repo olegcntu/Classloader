@@ -1,6 +1,6 @@
 package classLoad;
 
-import obj.Mhetods;
+import obj.Methods;
 import obj.Values;
 
 import java.lang.reflect.*;
@@ -9,13 +9,13 @@ import java.util.ArrayList;
 public class Detail {
 
 
-    public static ArrayList<Mhetods> getMetodNames(Class clazz) {
-        ArrayList<Mhetods> mhetod = new ArrayList<>();
+    public static ArrayList<Methods> getMethodNames(Class clazz) {
+        ArrayList<Methods> method = new ArrayList<>();
 
         try {
             Method[] publicMethods = clazz.getDeclaredMethods();
             for (int i = 0; i < publicMethods.length; i++) {
-                Mhetods m = new Mhetods();
+                Methods m = new Methods();
                 try {
                     String methodsName = publicMethods[i].getName();
                     String methodsName1 = publicMethods[i].toString();
@@ -26,15 +26,15 @@ public class Detail {
                     String fieldType = typeClass.getName();
                     m.setType(fieldType);
 
-                    mhetod.add(m);
+                    method.add(m);
                 } catch (Exception e) {
                     System.out.println(e);
                 }
             }
-        } catch (Throwable e) {
+        } catch (Throwable ignored) {
 
         }
-        return mhetod;
+        return method;
     }
 
     public static ArrayList<Values> getFieldNames(Class clazz) {
@@ -60,7 +60,7 @@ public class Detail {
                     v.setMods(fieldName2);
                     value.add(v);
                 } catch (Exception e) {
-                    System.out.println(e);
+                    System.out.println(e.toString());
                 }
             }
         } catch (Throwable e) {

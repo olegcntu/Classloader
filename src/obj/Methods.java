@@ -1,15 +1,14 @@
 package obj;
 
 
-public class Mhetods {
+public class Methods {
     String name;
     String type;
     String mod;
-    String oblsee;
+    String areaOfVisibility;
 
 
     public void setName(String name) {
-
 
         this.name = name;
     }
@@ -20,14 +19,15 @@ public class Mhetods {
 
     public void setMods(String st) {
         String[] result = st.split("\\s+");
+
         if (result[0].equals("protected")) {
-            oblsee = result[0];
+            areaOfVisibility = result[0];
         } else if (result[0].equals("private")) {
-            oblsee = result[0];
+            areaOfVisibility = result[0];
         } else if (result[0].equals("public")) {
-            oblsee = result[0];
+            areaOfVisibility = result[0];
         } else {
-            oblsee = "default";
+            areaOfVisibility = "default";
         }
 
         if (result[1].equals("static")) {
@@ -43,7 +43,7 @@ public class Mhetods {
 
     @Override
     public String toString() {
-        return " Mhetods " + " \n Name=" + name + "; \n Type=" + type + "; \n Mod=" + mod + "; \n Oblsee=" + oblsee + ";";
+        return " Methods " + " \n Name=" + name + "; \n Type=" + type + "; \n Mod=" + mod + "; \n areaOfVisibility=" + areaOfVisibility + ";";
     }
 
 }
